@@ -1,0 +1,287 @@
+<nav>
+  <a href="/" class="logo">
+    Studio.AlexOrgeJr
+    <span>©2026</span>
+  </a>
+
+  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-links">
+    <a href="/" class="active">INDEX</a>
+    <a href="#work">WORK</a>
+    <a href="#design">DESIGN</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</nav>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(14px, 2.5vw, 20px) clamp(1.25rem, 6vw, 10%);
+    background-color: color-mix(in srgb, var(--color-background) 80%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-family: var(--font-sans);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  a {
+    position: relative;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    color: var(--color-foreground);
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 1.5vw + 0.7rem, 1.5rem);
+    display: flex;
+    align-items: baseline;
+    white-space: nowrap;
+  }
+
+  .logo span {
+    font-size: 0.75rem;
+    margin-left: 5px;
+    font-family: var(--font-mono);
+  }
+
+  /* ---- desktop / default state ---- */
+
+  .nav-links {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 50px);
+    white-space: nowrap;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+
+  .nav-links a:hover::before,
+  .nav-links a.active::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -12px;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-foreground);
+    border-radius: var(--radius-pill);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    position: relative;
+    z-index: 102;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background-color: var(--color-foreground);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* ---- compact state, toggled by JS via ResizeObserver ---- */
+
+  nav.compact {
+    flex-wrap: wrap;
+  }
+
+  nav.compact .hamburger {
+    display: flex;
+    position: relative;
+    z-index: 102;
+  }
+
+  nav.compact .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.75rem;
+
+    padding: 0 clamp(1.25rem, 6vw, 10%);
+    background-color: var(--color-background);
+
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    white-space: normal;
+
+    z-index: 101;
+  }
+
+  nav.compact .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  nav.compact.open .nav-links {
+    transform: translateX(0);
+  }
+
+  nav.compact.open .hamburger span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  nav.compact.open .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  nav.compact.open .hamburger span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+  gsap.registerPlugin(ScrollToPlugin);
+
+  const nav = document.querySelector<HTMLElement>("nav");
+  const logo = document.querySelector<HTMLElement>(".logo");
+  const navLinksEl = document.querySelector<HTMLElement>(".nav-links");
+  const hamburger = document.querySelector<HTMLButtonElement>(".hamburger");
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-links a");
+  const NAV_OFFSET = 58.28; // adjust to match your nav's actual rendered height
+
+  // --- Compact-mode detection (replaces a media query) ---
+  // Measures whether logo + nav-links can fit on one line at their natural
+  // width, and toggles `.compact` on the nav accordingly. Runs on resize of
+  // the nav itself, so it reacts to real available space, not just viewport.
+  if (nav && logo && navLinksEl && hamburger) {
+    const HAMBURGER_WIDTH = 32;
+    const GAP_BUFFER = 32; // breathing room between logo and links
+
+    const checkFit = () => {
+      // Temporarily force natural (non-compact) layout to measure true widths
+      const wasCompact = nav.classList.contains("compact");
+      nav.classList.remove("compact");
+
+      const navWidth = nav.clientWidth;
+      const paddingLeft = parseFloat(getComputedStyle(nav).paddingLeft);
+      const paddingRight = parseFloat(getComputedStyle(nav).paddingRight);
+      const available = navWidth - paddingLeft - paddingRight;
+
+      const logoWidth = logo.offsetWidth;
+      const linksWidth = navLinksEl.scrollWidth;
+
+      const needed = logoWidth + linksWidth + GAP_BUFFER;
+      const needsCompact = needed > available;
+
+      nav.classList.toggle("compact", needsCompact);
+
+      // If we're switching OUT of compact, make sure the menu is closed
+      if (wasCompact && !needsCompact) {
+        nav.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+      }
+    };
+
+    const resizeObserver = new ResizeObserver(() => checkFit());
+    resizeObserver.observe(nav);
+
+    // Initial check after fonts/layout settle
+    requestAnimationFrame(checkFit);
+
+    hamburger.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      hamburger.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+
+  // Click-to-scroll (only for hash links; "/" navigates normally)
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const targetId = link.getAttribute("href");
+      if (targetId?.startsWith("#")) {
+        e.preventDefault();
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: { y: targetId, offsetY: NAV_OFFSET },
+          ease: "power2.inOut",
+        });
+      }
+      // if href is "/", let the browser handle it as a normal link
+
+      // Close the compact menu after navigating
+      if (nav?.classList.contains("compact")) {
+        nav.classList.remove("open");
+        hamburger?.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
+  // Scroll-based active state (hash-linked sections only)
+  const hashLinks = Array.from(navLinks).filter((link) =>
+    link.getAttribute("href")?.startsWith("#")
+  );
+
+  const sections = hashLinks
+    .map((link) => {
+      const id = link.getAttribute("href")?.replace("#", "");
+      return id ? document.getElementById(id) : null;
+    })
+    .filter((el): el is HTMLElement => el !== null);
+
+  const setActive = (id: string | null) => {
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      link.classList.toggle("active", href === (id ? `#${id}` : "/"));
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+
+      const anyIntersecting = entries.some((entry) => entry.isIntersecting);
+      if (!anyIntersecting && window.scrollY < NAV_OFFSET) {
+        setActive(null);
+      }
+    },
+    {
+      rootMargin: `-${NAV_OFFSET}px 0px -50% 0px`,
+      threshold: 0,
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+</script>

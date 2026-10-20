@@ -1,0 +1,1304 @@
+---
+import Clock from '../components/Clock.astro';
+import { CircleArrowDown } from '@lucide/astro';
+import Marquee from '../components/Marquee.astro';
+
+import { Image } from 'astro:assets';
+import Work1 from '../assets/hospeco-1.webp';
+import Work2 from '../assets/hospeco-2.webp';
+import Design1 from '../assets/design-1.webp';
+import Design2 from '../assets/design-2.webp';
+import Design3 from '../assets/design-3.webp';
+import Design4 from '../assets/design-4.webp';
+import Design5 from '../assets/design-5.webp';
+import Design6 from '../assets/design-6.webp';
+import Pic from '../assets/pic.jpg';
+---
+
+<div class="hero">
+	<div class="top">
+		<div class="left">
+			<h2>CREATIVE</h2>
+			<h2>DEVELOPER</h2>
+			<h2>BUILDING</h2>
+			<h2>FOR THE</h2>
+			<h2>BROWSER</h2>
+			<h2>SINCE 2026</h2>
+		</div>
+
+		<div class="right">
+			<h2>PHILIPPINES</h2>
+			<Clock />
+		</div>
+	</div>
+
+	<div class="middle">
+		<h1>Designing</h1>
+		<h1>digital things</h1>
+		<h1>that feel <span>(alive)</span></h1>
+	</div>
+
+	<div class="bottom">
+		<div class="left">
+			<h2>Creative Developer</h2>
+			&bull;
+			<h2>Web Designer</h2>
+			&bull;
+			<h2>Graphic Designer</h2>
+		</div>
+
+		<div class="right" onclick="document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })">
+			<h2>SCROLL TO EXPLORE</h2>
+			<CircleArrowDown class="afloat"/>
+		</div>
+	</div>
+</div>
+
+<Marquee text="Selected Work" speed={25} />
+
+<div id="work" class="selected_work">
+	<div class="top">
+		<h2>SELECTED WORK</h2>
+		<h2>02 PROJECTS</h2>
+	</div>
+
+	<div class="work">
+		<div class="left">
+			<div class="top">
+				<div class="number">
+					01
+				</div>
+
+				<div class="infos">
+					<h1>HOSPECO PH</h1>
+					<p>
+						Hospeco is a B2B supplier of cleaning and facility essentials that helps businesses maintain their workplaces, restrooms, kitchens, and customer-facing spaces.
+					</p>
+				</div>
+			</div>
+
+			<div class="bottom">
+				<div class="b_top">
+					<div class="role">
+						<h2 class="label">ROLE</h2>
+						<h2 class="value">Web Admin & Product Management Associate</h2>
+					</div>
+
+					<div class="experience">
+						<h2 class="label">EXPERIENCE</h2>
+						<h2 class="value">Sep 2025 - Present</h2>
+					</div>
+				</div>
+
+				<div class="b_bottom">
+					<div class="stack">
+						<h2 class="label">STACK</h2>
+						
+						<div class="values">
+							<h2 class="value">WordPress</h2>
+							<h2 class="value">WooCommerce</h2>
+							<h2 class="value">Elementor Pro</h2>
+							<h2 class="value">CSS</h2>
+							<h2 class="value">JAVASCRIPT</h2>
+							<h2 class="value">PHP</h2>
+							<h2 class="value">MySQL</h2>
+							<h2 class="value">Cloudways → GoDaddy</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="right" data-lenis-prevent>
+			<Image src={Work1} alt="hospecoph" class="image" onclick="window.open('https://www.hospeco.ph', '_blank')"/>
+		
+			<div class="scroll-cue">
+				<CircleArrowDown class="afloat" />
+			</div>
+		</div>
+	</div>
+	
+	<div class="work">
+		<div class="left">
+			<div class="top">
+				<div class="number">
+					02
+				</div>
+
+				<div class="infos">
+					<h1>USE~LESS PH</h1>
+					<p>
+						Use~Less.ph is an e-commerce website operated by Hospeco Philippines that offers eco-friendly and sustainable hygiene and cleaning products. It provides a convenient online shopping platform where customers can browse and purchase products such as tissue rolls, dispensers, and other hygiene supplies for household and commercial use. The website promotes environmentally conscious purchasing while making essential cleaning and hygiene products more accessible to customers.
+					</p>
+				</div>
+			</div>
+
+			<div class="bottom">
+				<div class="b_top">
+					<div class="role">
+						<h2 class="label">ROLE</h2>
+						<h2 class="value">Web Admin & Product Management Associate</h2>
+					</div>
+
+					<div class="experience">
+						<h2 class="label">EXPERIENCE</h2>
+						<h2 class="value">Sep 2025 - Present</h2>
+					</div>
+				</div>
+
+				<div class="b_bottom">
+					<div class="stack">
+						<h2 class="label">STACK</h2>
+						
+						<div class="values">
+							<h2 class="value">WordPress</h2>
+							<h2 class="value">WooCommerce</h2>
+							<h2 class="value">Elementor Pro</h2>
+							<h2 class="value">CSS</h2>
+							<h2 class="value">JAVASCRIPT</h2>
+							<h2 class="value">PHP</h2>
+							<h2 class="value">MySQL</h2>
+							<h2 class="value">Cloudways → GoDaddy</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="right" data-lenis-prevent>
+			<Image src={Work2} alt="hospecoph" class="image" onclick="window.open('https://www.use-less.ph', '_blank')"/>
+
+			<div class="scroll-cue">
+				<CircleArrowDown class="afloat" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="design" class="graphic_design">
+	<div class="top">
+		<div class="left">
+			<h2 class="subtitle">GRAPHIC DESIGN</h2>
+
+			<h2 class="title">Posters & type experiments</h2>
+		</div>
+
+		<div class="right">
+			<h2>A playground of type, color, and ideas.<br/>Experimental graphic design, visual storytelling,<br/>and creative explorations without limits.</h2>
+		</div>
+	</div>
+
+	<div class="main">
+		<div onclick="window.open('https://www.instagram.com/p/CiXw67mpVhb/?stkn=MzRlODBiNWFlZA==', '_blank')" class="img_container"><Image src={Design1} alt="hospecoph" class="poster_design" data-cursor="view"/></div>
+		<div onclick="window.open('https://www.instagram.com/p/DMMCBwbzOBq/?stkn=MzRlODBiNWFlZA==', '_blank')" class="img_container"><Image src={Design2} alt="hospecoph" class="poster_design" data-cursor="view"/></div>
+		<div onclick="window.open('https://www.instagram.com/p/Cw2YCy5Pf3O/?stkn=MzRlODBiNWFlZA==', '_blank')" class="img_container"><Image src={Design3} alt="hospecoph" class="poster_design" data-cursor="view"/></div>
+		<div onclick="window.open('https://www.instagram.com/p/Ci9v97qp5h8/?stkn=MzRlODBiNWFlZA==', '_blank')" class="img_container"><Image src={Design4} alt="hospecoph" class="poster_design" data-cursor="view"/></div>
+		<div onclick="window.open('https://www.instagram.com/p/CwPhn7bv4TU/?stkn=MzRlODBiNWFlZA==', '_blank')" class="img_container"><Image src={Design5} alt="hospecoph" class="poster_design" data-cursor="view"/></div>
+		<div onclick="window.open('https://www.instagram.com/p/DX0LwgOlOVg/?stkn=MzRlODBiNWFlZA==', '_blank')" class="img_container"><Image src={Design6} alt="hospecoph" class="poster_design" data-cursor="view"/></div>
+	</div>
+
+	<div class="button">
+		<a href="https://www.instagram.com/oberon_065/" target="_blank" rel="noopener noreferrer">VIEW ALL DESIGNS -></a>
+	</div>
+</div>
+
+<div id="about" class="about">
+	<h2 class="title">ABOUT</h2>
+
+	<div class="main">
+		<div class="left">
+			<Image src={Pic} alt="Portrait_Pic" class="image"/>
+		</div>
+
+		<div class="right">
+			<h1>
+				I'm Xander — a creative developer and designer working at the seam between code and craft.
+			</h1>
+
+			<h2>
+				A concept. A detail. A line of code. A visual. <br/><br/>
+				An IT graduate exploring the space between web development and graphic design. I work with websites, manage digital products, and create visuals that start as simple ideas and evolve through experimentation. <br/><br/>
+				I'm not here to follow one path. I'm here to explore what I can create.
+			</h2>
+
+			<div class="tools">
+				<h2 class="title">
+					TOOLS & TECHNOLOGIES
+				</h2>
+
+				<div class="list">
+					<h3>HTML</h3>
+					<h3>CSS</h3>
+					<h3>JAVASCRIPT</h3>
+					<h3>PHP</h3>
+					<h3>MySQL</h3>
+					<h3>Laravel</h3>
+					<h3>Astro</h3>
+					<h3>GitHub</h3>
+					<h3>WordPress</h3>
+					<h3>GoDaddy</h3>
+					<h3>Figma</h3>
+					<h3>Adobe Photoshop</h3>
+					<h3>Adobe Premiere</h3>
+					<h3>Microsoft Office</h3>
+					<h3>Canva</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	/* Lets the scroll-cue gradient's grayscale animate smoothly */
+	@property --cue-gray {
+		syntax: '<number>';
+		inherits: true;
+		initial-value: 1;
+	}
+
+	.hero {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		padding: 6% 2% 3% 2%;
+	}
+
+	.hero h2 {
+		font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-muted);
+	}
+
+	.hero .top {
+		width: 100%;
+		height: 100%;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: top;
+	}
+
+	.hero .top .left {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+
+	.hero .top .right {
+		width: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+
+	.hero .middle {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.hero .middle h1 {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		font-size: clamp(8rem, 12.5vw, 15rem);
+		font-family: var(--font-display);
+		font-weight: 500;
+		line-height: 1;
+		overflow-wrap: break-word;
+	}
+
+	.hero .middle h1:nth-child(2) {
+		padding-left: 5rem;
+		font-style: italic;
+	}
+
+	.hero .middle h1:last-child {
+		flex-direction: row;
+		gap: 6rem;
+	}
+
+	.hero .middle h1 span {
+		display: flex;
+		align-items: flex-end;
+		padding-bottom: 2.3rem;
+
+		font-family: var(--font-sans);
+		font-size: 2.5rem;
+	}
+
+	.hero .bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.hero .bottom .left {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		color: var(--color-muted);
+	}
+
+	.hero .bottom .right {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.hero .bottom .right .afloat {
+		animation: float 1.5s ease-in-out infinite;
+	}
+
+	@keyframes float {
+		0% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+
+	.selected_work,
+	.graphic_design,
+	.about {
+		padding: 7% 10%;
+	}
+
+	.selected_work .top:not(.selected_work .work .left .top) {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 4%;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.selected_work h2 {
+		font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-muted);
+	}
+
+	.selected_work .work {
+		display: flex;
+		gap: 5%;
+		text-align: center;
+		padding: 4% 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.selected_work .work:nth-child(2 of .work) {
+		flex-direction: row-reverse;
+	}
+
+	.selected_work .work .left {
+		width: 40%;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.selected_work .work .left .top {
+		display: flex;
+		align-items: start;
+		justify-content: space-between;
+		gap: 5%;
+	}
+
+	.selected_work .work .left .top .number {
+		color: var(--color-muted);
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+	}
+
+	.selected_work .work .left .top .infos {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		gap: 40px;
+	}
+
+	.selected_work .work .left .top .infos h1 {
+		font-family: var(--font-display);
+		font-size: 3rem;
+		overflow-wrap: break-word;
+	}
+
+	.selected_work .work .left .top .infos p {
+		color: var(--color-muted);
+		text-align: justify;
+	}
+
+	.selected_work .work .left .bottom {
+		display: flex;
+		flex-direction: column;
+		gap: 1.3rem;
+
+		border-top: 1px solid var(--color-border);
+		padding-top: 1.5rem;
+	}
+
+	.selected_work .work .left .bottom .label {
+		letter-spacing: 0.2rem;
+	}
+
+	.selected_work .work .left .bottom .value {
+		font-family: var(--font-sans);
+		color: var(--color-foreground);
+
+		text-align: left;
+		text-wrap: wrap;
+	}
+
+	.selected_work .work .left .bottom .b_top {
+		display: flex;
+		justify-content: flex-start;
+		gap: 2.5rem;
+	}
+
+	.selected_work .work .left .bottom .b_top .role,
+	.selected_work .work .left .bottom .b_top .experience {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.8rem;
+	}
+
+	.selected_work .work .left .bottom .b_bottom .stack {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.8rem;
+	}
+
+	.selected_work .work .left .bottom .b_bottom .stack .values {
+		display: flex;
+		gap: 0.5rem;
+
+		width: 100%;
+		height: auto;
+		flex-wrap: wrap;
+	}
+
+	.selected_work .work .left .bottom .b_bottom .stack .values .value {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		border: 1px solid var(--color-border);
+		border-radius: 100px;
+		padding: 0.3rem 1rem;
+	}
+
+	/* ---------- Scrollable website screenshot frame ---------- */
+	.selected_work .work .right {
+		position: relative;
+		width: 60%;
+		min-width: 0;
+		height: 30rem;
+		border: 1px solid var(--color-border);
+		overflow-x: hidden;
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.selected_work .work .right::-webkit-scrollbar {
+		display: none;
+	}
+
+	.selected_work .work .right .image {
+		display: block; /* removes the inline-image gap under the screenshot */
+		width: 100%;
+		height: auto;
+		cursor: pointer;
+
+		filter: grayscale(100%);
+		-webkit-filter: grayscale(100%);
+
+		transition: filter 0.5s ease-in-out, -webkit-filter 0.5s ease-in-out;
+	}
+
+	.selected_work .work .right .image:hover {
+		filter: grayscale(0%);
+		-webkit-filter: grayscale(0%);
+	}
+
+	.selected_work .work .right .scroll-cue {
+		position: sticky;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 70px;
+		margin-top: -70px; /* overlaps the image, so no extra blank scroll space */
+		z-index: 2;
+
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		padding-bottom: 12px;
+		pointer-events: none;
+
+		color: var(--cue-fg, #fff); /* arrow color, set from JS */
+		opacity: 1;
+		transition: opacity 0.35s ease, --cue-gray 0.5s ease-in-out;
+	}
+
+	/* The gradient fades into the sampled color of the image's visible bottom edge */
+	.selected_work .work .right .scroll-cue::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		background: linear-gradient(to bottom, transparent, var(--cue-color, transparent) 90%);
+		/* Same grayscale state as the image, so they always match */
+		filter: grayscale(calc(var(--cue-gray) * 100%));
+	}
+
+	.selected_work .work .right:hover .scroll-cue {
+		--cue-gray: 0;
+	}
+
+	/* Reached the bottom (or nothing to scroll): hide gradient + arrow */
+	.selected_work .work .right[data-at-end="true"] .scroll-cue {
+		opacity: 0;
+	}
+
+	.graphic_design {
+		display: flex;
+		flex-direction: column;
+
+		width: 100%;
+		background-color: var(--color-foreground);
+		color: var(--color-background);
+		border-bottom: 1px solid var(--color-border);
+
+		gap: 5rem;
+	}
+
+	.graphic_design .top {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.graphic_design .top .left {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.graphic_design .top .right {
+		display: flex;
+		align-items: flex-end;
+		
+		width: auto;
+		min-width: 0;
+		font-family: var(--font-sans);
+		font-weight: 400;
+		font-size: 0.6rem;
+		line-height: 1.5;
+	}
+
+	.graphic_design .top .left .subtitle {
+		font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-muted);
+	}
+
+	.graphic_design .top .left .title {
+		font-family: var(--font-display);
+		font-size: 3.7rem;
+		font-weight: 400;
+		overflow-wrap: break-word;
+	}
+
+	.graphic_design .main {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 1rem;
+	}
+
+	.graphic_design .main .img_container {
+		position: relative;
+		overflow: hidden;
+		filter: grayscale(100%);
+		-webkit-filter: grayscale(100%); 
+	}
+
+	.graphic_design .main .img_container:hover {
+		filter: grayscale(0%);
+		-webkit-filter: grayscale(0%); 
+	}
+
+	.graphic_design .main .img_container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+	}
+
+	.graphic_design .main:hover .img_container::after {
+			opacity: 1;
+	}
+
+	.graphic_design .main .img_container:hover::after {
+		opacity: 0;
+	}
+
+	.graphic_design .main .poster_design {
+		transform: scale(1);
+		width: 100%;
+		height: auto;
+		transition: transform 0.5s ease-in-out ;
+		will-change: transform;
+	}
+
+	.graphic_design .button {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.graphic_design .button a {
+		text-align: center;
+		text-decoration: none;
+
+		font-family: var(--font-sans);
+		color: var(--color-paper);
+
+		border: 1px solid var(--color-paper);
+		padding: 1rem 1.2rem;
+		border-radius: 100px;
+	}
+
+	.graphic_design .button a:hover {
+		background-color: var(--color-paper);
+		color: var(--color-foreground);
+	}
+
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 70px;
+	}
+
+	.about .title {
+		font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-muted);
+	}
+
+	.about .main {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	.about .left {
+		filter: grayscale(100%);
+		-webkit-filter: grayscale(100%);
+		transition: filter 0.5s ease-in-out, -webkit-filter 0.5s ease-in-out;
+
+		width: 30%;
+		min-width: 0;
+	}
+
+	.about .left:hover {
+		filter: grayscale(0%);
+		-webkit-filter: grayscale(0%);
+	}
+
+	.about .left .image {
+		width: 100%;
+		height: auto;
+
+	}
+
+	.about .right {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		width: 50%;
+		min-width: 0;
+	}
+
+	.about .right h1 {
+		font-family: var(--font-display);
+		font-size: 3rem;
+		font-weight: 400;
+		line-height: 1.2;
+		overflow-wrap: break-word;
+	}
+
+	.about .right h2 {
+		font-display: var(--font-sans);
+		font-weight: 400;
+		font-size: 1rem;
+		text-align: justify;
+	}
+
+	.about .right .tools {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		border-top: 1px solid var(--color-border);
+		padding-top: 2rem;
+	}
+
+	.about .right .tools .title {
+		font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-muted);
+	}
+
+	.about .right .tools .list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+	}
+
+	.about .right .tools .list h3 {
+		display: flex;
+		align-item: center;
+		justify-content: center;
+
+		font-family: var(--font-sans);
+		font-weight: 400;
+		font-size: 1rem;
+
+		padding: 0.4rem 0.8rem;
+		margin: 0;
+		border-radius: 100px;
+
+		border: 1px solid var(--color-foreground);
+	}
+
+	.about .right .tools .list h3:hover {
+		background-color: var(--color-foreground);
+		color: var(--color-paper);
+	}
+
+	/* ==========================================================
+	   RESPONSIVE — TABLET (≤ 1024px)
+	   ========================================================== */
+	@media (max-width: 1024px) {
+		.hero {
+			padding: 8% 4% 4% 4%;
+		}
+
+		.hero .middle h1 {
+			font-size: 8rem;
+		}
+
+		.hero .middle h1:nth-child(2) {
+			padding-left: 2.5rem;
+		}
+
+		.hero .middle h1:last-child {
+			gap: 2.5rem;
+		}
+
+		.hero .middle h1 span {
+			font-size: 1.8rem;
+			padding-bottom: 1.2rem;
+		}
+
+		.hero .bottom .left {
+			flex-wrap: wrap;
+		}
+
+		.selected_work,
+		.graphic_design,
+		.about {
+			padding: 8% 6%;
+		}
+
+		.selected_work .work {
+			display: flex;
+			flex-direction: column;
+			gap: 50px;
+			
+		}
+
+		.selected_work .work:nth-child(2 of .work) {
+			flex-direction: column;
+		}
+
+		.selected_work .work .left,
+		.selected_work .work .right {
+			width: 100%;
+		}
+
+		.selected_work .work .left {
+			gap: 2rem;
+		}
+
+		.selected_work .work .right {
+			height: 22rem;
+		}
+
+		/* Colorize-on-scroll is handled by GSAP on tablet/phone.
+			CSS transitions would fight the GSAP tween, so turn them off here. */
+		.selected_work .work .right .image,
+		.graphic_design .main .img_container,
+		.about .left {
+			transition: none;
+		}
+
+		/* The scroll cue's grayscale is also driven by GSAP here,
+			but its fade-out at the bottom of the scroll still needs to animate. */
+		.selected_work .work .right .scroll-cue {
+			transition: opacity 0.35s ease;
+		}
+
+		/* The dark poster overlay is a pseudo-element, which GSAP can't target
+			directly, so it reads a CSS variable that GSAP animates instead. */
+		.graphic_design .main .img_container::after {
+			opacity: var(--overlay, 1) !important;
+			transition: none;
+		}
+
+		.selected_work .work .left .top .infos h1 {
+			font-size: 2.4rem;
+		}
+
+		.graphic_design {
+			gap: 3rem;
+		}
+
+		.graphic_design .top {
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+
+		.graphic_design .top .right {
+			width: 100%;
+			font-size: 0.75rem;
+		}
+
+		.graphic_design .top .left .title {
+			font-size: 2.6rem;
+		}
+
+		.graphic_design .main {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.about .main {
+			flex-direction: column;
+			gap: 2.5rem;
+		}
+
+		.about .left,
+		.about .right {
+			width: 100%;
+		}
+
+		.about .right h1 {
+			font-size: 2.2rem;
+		}
+	}
+
+	/* ==========================================================
+	   RESPONSIVE — MOBILE (≤ 640px)
+	   ========================================================== */
+	@media (max-width: 640px) {
+		.hero {
+			padding: 30% 5% 6% 5%;
+			gap: 3rem;
+		}
+
+		.hero .top {
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+
+		.hero .top .right {
+			align-items: flex-start;
+		}
+
+		.hero .middle {
+			width: 100%;
+		}
+
+		.hero .middle h1 {
+			font-size: clamp(2.4rem, 9vw, 3.2rem);
+		}
+
+		.hero .middle h1:nth-child(2) {
+			padding-left: 1rem;
+		}
+
+		.hero .middle h1:last-child {
+			flex-direction: column;
+			gap: 0.3rem;
+		}
+
+		.hero .middle h1 span {
+			padding-bottom: 0;
+			font-size: 1.2rem;
+		}
+
+		.hero .bottom {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1rem;
+		}
+
+		.hero .bottom .left {
+			font-size: 0.9rem;
+			flex-wrap: wrap;
+		}
+
+		.selected_work,
+		.graphic_design,
+		.about {
+			padding: 12% 6%;
+		}
+
+		.selected_work .top:not(.selected_work .work .left .top) {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5rem;
+		}
+
+		.selected_work .work .left .top {
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+
+		.selected_work .work .left .top .infos h1 {
+			font-size: 2rem;
+		}
+
+		.selected_work .work .right {
+			height: 16rem;
+		}
+
+		.graphic_design .top .left .title {
+			font-size: 1.9rem;
+		}
+
+		.graphic_design .main {
+			grid-template-columns: 1fr;
+		}
+
+		.graphic_design .button a {
+			padding: 0.8rem 1rem;
+			font-size: 0.9rem;
+		}
+
+		.about .right h1 {
+			font-size: 1.7rem;
+		}
+
+		.about .right h2 {
+			font-size: 0.95rem;
+		}
+
+		.about .right .tools .list h3 {
+			font-size: 0.85rem;
+			padding: 0.35rem 0.7rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+			.afloat {
+					animation: none;
+			}
+	}
+</style>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Shared across every animation block below
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------------- HERO INTRO (on page load) ---------------- */
+  const topLeftItems = document.querySelectorAll(".hero .top .left h2");
+  const topRightItems = document.querySelectorAll(".hero .top .right > *");
+  const middleLines = document.querySelectorAll(".hero .middle h1");
+  const bottomLeft = document.querySelector(".hero .bottom .left");
+  const bottomRight = document.querySelector(".hero .bottom .right");
+
+  if (!reducedMotion && (topLeftItems.length || middleLines.length)) {
+    const introTl = gsap.timeline({
+      defaults: { ease: "power3.out" },
+    });
+
+    // Set starting states up front so there's no flash of unstyled content
+    gsap.set(topLeftItems, { opacity: 0, y: -14 });
+    gsap.set(topRightItems, { opacity: 0, y: -14 });
+    gsap.set(middleLines, { opacity: 0, y: 40 });
+    gsap.set([bottomLeft, bottomRight], { opacity: 0, y: 14 });
+
+    introTl
+      .to(topLeftItems, { opacity: 1, y: 0, duration: 0.7, stagger: 0.06 })
+      .to(topRightItems, { opacity: 1, y: 0, duration: 0.7, stagger: 0.06 }, "<")
+      .to(middleLines, { opacity: 1, y: 0, duration: 1, stagger: 0.12 }, "-=0.3")
+      .to([bottomLeft, bottomRight], { opacity: 1, y: 0, duration: 0.6, stagger: 0.1 }, "-=0.4");
+  } else {
+    // Reduced motion: just make sure everything's visible, no animation
+    gsap.set([topLeftItems, topRightItems, middleLines, bottomLeft, bottomRight], { opacity: 1, y: 0 });
+  }
+
+  /* ---------------- HERO PARALLAX ---------------- */
+  const hero = document.querySelector(".hero") as HTMLElement | null;
+  const heroTexts = document.querySelectorAll(
+    ".hero .middle h1"
+  ) as NodeListOf<HTMLElement>;
+
+  if (hero && heroTexts.length) {
+    const isTouchDevice =
+      window.matchMedia("(hover: none)").matches ||
+      window.matchMedia("(pointer: coarse)").matches;
+
+    if (!isTouchDevice && !reducedMotion) {
+      hero.addEventListener("mousemove", (event: MouseEvent) => {
+        const rect = hero.getBoundingClientRect();
+        const mouseX = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+        const mouseY = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+
+        gsap.to(heroTexts[0], { x: mouseX * 18, y: mouseY * 10, duration: 0.8, ease: "power3.out", overwrite: true });
+        gsap.to(heroTexts[1], { x: mouseX * -12, y: mouseY * -7, duration: 0.9, ease: "power3.out", overwrite: true });
+        gsap.to(heroTexts[2], { x: mouseX * 25, y: mouseY * 12, duration: 1, ease: "power3.out", overwrite: true });
+      });
+
+      hero.addEventListener("mouseleave", () => {
+        gsap.to(heroTexts, { x: 0, y: 0, duration: 1, ease: "elastic.out(1, 0.5)", stagger: 0.05 });
+      });
+    }
+  }
+
+  /* ---------------- SCROLL CUE: match image color + hide at bottom ---------------- */
+  document
+    .querySelectorAll<HTMLElement>(".selected_work .work .right")
+    .forEach((box) => {
+      const img = box.querySelector("img") as HTMLImageElement | null;
+      if (!img) return;
+
+      const ROWS = 100;
+      let rows: [number, number, number][] = [];
+
+      // Average color of each horizontal slice of the screenshot
+      const sample = () => {
+        try {
+          const canvas = document.createElement("canvas");
+          canvas.width = 16;
+          canvas.height = ROWS;
+          const ctx = canvas.getContext("2d", { willReadFrequently: true });
+          if (!ctx || !img.naturalWidth) return;
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          const { data } = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+          rows = [];
+          for (let y = 0; y < ROWS; y++) {
+            let r = 0, g = 0, b = 0;
+            for (let x = 0; x < canvas.width; x++) {
+              const i = (y * canvas.width + x) * 4;
+              r += data[i]; g += data[i + 1]; b += data[i + 2];
+            }
+            const n = canvas.width;
+            rows.push([Math.round(r / n), Math.round(g / n), Math.round(b / n)]);
+          }
+        } catch {
+          rows = []; // canvas unavailable: fall back to the CSS default
+        }
+      };
+
+      const update = () => {
+			const maxScroll = box.scrollHeight - box.clientHeight;
+			const atEnd = maxScroll <= 2 || box.scrollTop >= maxScroll - 4;
+
+			if (box.dataset.atEnd !== String(atEnd)) {
+				box.dataset.atEnd = String(atEnd);
+			}
+
+			if (!rows.length) return;
+
+			const ratio = (box.scrollTop + box.clientHeight) / box.scrollHeight;
+			const pos = Math.min(ROWS - 1, Math.max(0, ratio * ROWS - 1));
+
+			// interpolate between the two nearest rows for a smooth transition
+			const i0 = Math.floor(pos);
+			const i1 = Math.min(ROWS - 1, i0 + 1);
+			const t = pos - i0;
+
+			const [r0, g0, b0] = rows[i0];
+			const [r1, g1, b1] = rows[i1];
+			const r = Math.round(r0 + (r1 - r0) * t);
+			const g = Math.round(g0 + (g1 - g0) * t);
+			const b = Math.round(b0 + (b1 - b0) * t);
+
+			const color = `rgb(${r}, ${g}, ${b})`;
+			if (box.style.getPropertyValue("--cue-color") !== color) {
+				box.style.setProperty("--cue-color", color);
+				const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
+				box.style.setProperty("--cue-fg", luminance > 140 ? "#000" : "#fff");
+			}
+		};
+
+      let ticking = false;
+      box.addEventListener("scroll", () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => { update(); ticking = false; });
+      }, { passive: true });
+
+      window.addEventListener("resize", update);
+
+      const init = () => { sample(); update(); };
+      if (img.complete && img.naturalWidth) init();
+      else img.addEventListener("load", init, { once: true });
+    });
+
+  /* ---------------- SCROLL REVEALS (fade + rise, all sections) ---------------- */
+  if (!reducedMotion) {
+    const revealDefaults = { duration: 1, ease: "power3.out" };
+
+    // Small helper: fade+rise a set of elements together, triggered once
+    const revealOnScroll = (elements: Element[] | NodeListOf<Element>, opts: gsap.TweenVars = {}) => {
+      const targets = gsap.utils.toArray(elements) as HTMLElement[];
+      if (!targets.length) return;
+
+      gsap.set(targets, { opacity: 0, y: 40 });
+
+      ScrollTrigger.batch(targets, {
+        start: "top 85%",
+        once: true,
+        onEnter: (batch) =>
+          gsap.to(batch, {
+            ...revealDefaults,
+            opacity: 1,
+            y: 0,
+            stagger: 0.12,
+            ...opts,
+          }),
+      });
+    };
+
+    // --- Selected Work ---
+    revealOnScroll(document.querySelectorAll(".selected_work .top > *"));
+
+    document.querySelectorAll<HTMLElement>(".selected_work .work").forEach((work) => {
+      revealOnScroll(work.querySelectorAll(".left .top, .left .bottom"), { stagger: 0.15 });
+      revealOnScroll([work.querySelector(".right") as HTMLElement], { y: 0, duration: 1.2 });
+    });
+
+    // --- Graphic Design ---
+    revealOnScroll(document.querySelectorAll(".graphic_design .top .left, .graphic_design .top .right"));
+    revealOnScroll(document.querySelectorAll(".graphic_design .main .img_container"), { stagger: 0.08, y: 30 });
+    revealOnScroll([document.querySelector(".graphic_design .button") as HTMLElement]);
+
+    // --- About ---
+    revealOnScroll([document.querySelector(".about .title") as HTMLElement]);
+    revealOnScroll([document.querySelector(".about .left") as HTMLElement], { y: 0, duration: 1.2 });
+    revealOnScroll(document.querySelectorAll(".about .right > *"), { stagger: 0.15 });
+  } else {
+    gsap.set(
+      ".selected_work .top > *, .selected_work .work .left .top, .selected_work .work .left .bottom, .selected_work .work .right, .graphic_design .top .left, .graphic_design .top .right, .graphic_design .main .img_container, .graphic_design .button, .about .title, .about .left, .about .right > *",
+      { opacity: 1, y: 0 }
+    );
+  }
+
+  /* ---------------- COLORIZE ON SCROLL (tablet + phone only) ---------------- */
+  const mm = gsap.matchMedia();
+
+  mm.add("(max-width: 1024px)", () => {
+    const reveal = {
+      filter: "grayscale(0%)",
+      duration: 1.2,
+      ease: "power2.out",
+    };
+
+    // Project screenshots: trigger on the framed box, since the image
+    // inside it is tall and scrolls internally.
+    gsap.utils
+      .toArray<HTMLElement>(".selected_work .work .right .image")
+      .forEach((img) => {
+        gsap.fromTo(
+          img,
+          { filter: "grayscale(100%)" },
+          {
+            ...reveal,
+            scrollTrigger: {
+              trigger: img.closest(".right") as HTMLElement,
+              start: "top 75%",
+              once: true,
+            },
+          }
+        );
+
+        // The scroll-cue gradient colorizes together with the image
+        const cue = (img.closest(".right") as HTMLElement).querySelector(".scroll-cue");
+        if (cue) {
+          gsap.fromTo(
+            cue,
+            { "--cue-gray": 1 },
+            {
+              "--cue-gray": 0,
+              duration: 1.2,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: img.closest(".right") as HTMLElement,
+                start: "top 75%",
+                once: true,
+              },
+            }
+          );
+        }
+      });
+
+    // Posters: color in and lift the dark overlay together.
+    gsap.utils
+      .toArray<HTMLElement>(".graphic_design .main .img_container")
+      .forEach((box) => {
+        gsap.fromTo(
+          box,
+          { filter: "grayscale(100%)", "--overlay": 1 },
+          {
+            ...reveal,
+            "--overlay": 0,
+            scrollTrigger: {
+              trigger: box,
+              start: "top 80%",
+              once: true,
+            },
+          }
+        );
+      });
+
+    // About portrait
+    const portrait = document.querySelector(".about .left") as HTMLElement | null;
+    if (portrait) {
+      gsap.fromTo(
+        portrait,
+        { filter: "grayscale(100%)" },
+        {
+          ...reveal,
+          scrollTrigger: { trigger: portrait, start: "top 80%", once: true },
+        }
+      );
+    }
+  });
+</script>

@@ -1,0 +1,150 @@
+<div id="cursor" class="cursor">
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring">
+    <span class="cursor-text"></span>
+  </div>
+</div>
+
+<style>
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+  }
+
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cursor-text {
+    opacity: 0;
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    body {
+      cursor: none;
+    }
+    a,
+    button,
+    [data-cursor-hover] {
+      cursor: none;
+    }
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    .cursor {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+
+  const cursor = document.querySelector<HTMLElement>(".cursor");
+  const dot = document.querySelector<HTMLElement>(".cursor-dot");
+  const ring = document.querySelector<HTMLElement>(".cursor-ring");
+  const text = document.querySelector<HTMLElement>(".cursor-text");
+
+  if (dot && ring && text && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    const dotX = gsap.quickTo(dot, "x", { duration: 0.1, ease: "power3.out" });
+    const dotY = gsap.quickTo(dot, "y", { duration: 0.1, ease: "power3.out" });
+    const ringX = gsap.quickTo(ring, "x", { duration: 0.5, ease: "power3.out" });
+    const ringY = gsap.quickTo(ring, "y", { duration: 0.5, ease: "power3.out" });
+
+    window.addEventListener("mousemove", (e) => {
+      dotX(e.clientX);
+      dotY(e.clientY);
+      ringX(e.clientX);
+      ringY(e.clientY);
+    });
+
+    // Define presets per cursor state
+    const states: Record<string, gsap.TweenVars> = {
+      default: { scale: 1, backgroundColor: "transparent", borderColor: "#fff" },
+      view:    { scale: 2.2, backgroundColor: "#fff", borderColor: "#fff" },
+      play:    { scale: 2.6, backgroundColor: "#000", borderColor: "#000" },
+      drag:    { scale: 2.2, backgroundColor: "#fff", borderColor: "#fff" },
+      close:   { scale: 1.6, backgroundColor: "#ff4d4d", borderColor: "#ff4d4d" },
+    };
+
+    const labels: Record<string, string> = {
+      view: "View",
+      play: "Play",
+      drag: "Drag",
+      close: "×",
+    };
+
+    function setCursorState(state: string) {
+      const preset = states[state] || states.default;
+
+      gsap.to(ring, {
+        ...preset,
+        duration: 0.35,
+        ease: "power2.out",
+      });
+
+      gsap.to(dot, {
+        scale: state === "default" ? 1 : 0,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+
+      gsap.to(text, {
+        opacity: state === "default" ? 0 : 1,
+        duration: 0.2,
+        delay: state === "default" ? 0 : 0.1,
+      });
+
+      text!.textContent = labels[state] || "";
+
+      // flip text color when ring bg is light, so it stays readable
+      text!.style.color = ["view", "drag", "close"].includes(state) ? "#000" : "#fff";
+    }
+
+    const hoverTargets = document.querySelectorAll<HTMLElement>("[data-cursor], a, button");
+
+    hoverTargets.forEach((el) => {
+      const state = el.dataset.cursor || "default";
+
+      el.addEventListener("mouseenter", () => setCursorState(state));
+      el.addEventListener("mouseleave", () => setCursorState("default"));
+    });
+
+    document.addEventListener("mouseleave", () => gsap.to(cursor, { opacity: 0, duration: 0.2 }));
+    document.addEventListener("mouseenter", () => gsap.to(cursor, { opacity: 1, duration: 0.2 }));
+  }
+</script>

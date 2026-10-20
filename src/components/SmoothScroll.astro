@@ -1,0 +1,29 @@
+<script>
+  import Lenis from "lenis";
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 2,
+  });
+
+  // Sync Lenis scroll position with ScrollTrigger every frame
+  lenis.on("scroll", ScrollTrigger.update);
+
+  // Drive Lenis via GSAP's ticker instead of requestAnimationFrame,
+  // so everything stays on the same clock (no drift/jank)
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+  gsap.ticker.lagSmoothing(0);
+
+  // Expose lenis globally if you need to control it elsewhere
+  // (e.g. scroll-to-anchor links, pausing on modal open)
+  (window as any).lenis = lenis;
+</script>

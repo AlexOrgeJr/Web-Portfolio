@@ -1,0 +1,101 @@
+---
+interface Props {
+  text?: string;
+  speed?: number;
+}
+
+const { text = "Selected Work –", speed = 25 } = Astro.props;
+---
+
+<div class="marquee" data-marquee>
+  <div class="marquee__track" data-track>
+    <div class="marquee__content" data-content>
+      <span class="marquee__item">{text}</span>
+    </div>
+    <div class="marquee__content" data-content aria-hidden="true">
+      <span class="marquee__item">{text}</span>
+    </div>
+  </div>
+</div>
+
+<style define:vars={{ speed: `${speed}s` }}>
+  .marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 0;
+  }
+
+  .marquee__track {
+    display: flex;
+    width: max-content;
+    animation: scroll var(--speed) linear infinite;
+  }
+
+  /* Exactly two of these live in the track. Whatever width one ends up
+     with (after JS fills it), -50% of the track always equals exactly
+     one content block's width — so the loop can never overshoot. */
+  .marquee__content {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .marquee__item {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 2rem;
+    padding: 0 3rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; }
+  }
+</style>
+
+<script>
+  function setupMarquee(marquee: Element) {
+    const contents = marquee.querySelectorAll<HTMLElement>('[data-content]');
+    const firstContent = contents[0];
+    const secondContent = contents[1];
+    if (!firstContent || !secondContent) return;
+
+    const containerWidth = marquee.clientWidth;
+    const originalItem = firstContent.querySelector('[data-item]') ?? firstContent.firstElementChild;
+    if (!originalItem) return;
+
+    // Reset to a single item before measuring, so re-runs (e.g. on
+    // resize) don't compound clones from a previous pass.
+    firstContent.innerHTML = '';
+    firstContent.appendChild(originalItem.cloneNode(true));
+
+    // Fill the FIRST block until it alone is at least as wide as the
+    // container. -50% of the track then equals exactly this width.
+    while (firstContent.scrollWidth < containerWidth) {
+      firstContent.appendChild(originalItem.cloneNode(true));
+    }
+
+    // Mirror the exact same content into the second block so the two
+    // halves are guaranteed pixel-identical.
+    secondContent.innerHTML = firstContent.innerHTML;
+  }
+
+  function initAllMarquees() {
+    document.querySelectorAll('[data-marquee]').forEach(setupMarquee);
+  }
+
+  initAllMarquees();
+
+  let resizeTimeout: ReturnType<typeof setTimeout>;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(initAllMarquees, 150);
+  });
+</script>

@@ -1,0 +1,190 @@
+/* =========================
+   FONTS
+   ========================= */
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../assets/fonts/JetBrains Mono/JetBrainsMono-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("../assets/fonts/Instrument Serif/InstrumentSerif-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("../assets/fonts/Instrument Serif/InstrumentSerif-Italic.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+/* =========================
+   ROOT VARIABLES
+   ========================= */
+
+:root {
+  color-scheme: light;
+  
+  /* Colors */
+  --color-paper: #f4f2ec;
+  --color-paper-2: #e9e6dd;
+  --color-ink: #0d0d0c;
+  --color-ink-2: #1a1a18;
+  --color-muted: #6b6a63;
+  --color-line: #c9c5ba;
+
+  /* Semantic aliases */
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink-2);
+  --color-border: var(--color-line);
+
+  /* Typography */
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Instrument Serif", serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Spacing */
+  --section-x: 1.25rem;
+  --section-x-md: 2.5rem;
+  --section-y: 5rem;
+  --section-y-md: 7rem;
+
+  /* Radius */
+  --radius-pill: 9999px;
+  --radius-none: 0;
+}
+
+
+/* =========================
+   RESET
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+}
+
+/* Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+
+/* =========================
+   MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+
+/* =========================
+   BASE
+   ========================= */
+
+html {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  /* line-height: 1; */
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================
+   MEDIA
+   ========================= */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* =========================
+   FORM ELEMENTS
+   ========================= */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+
+/* =========================
+   TEXT
+   ========================= */
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+
+/* =========================
+   STACKING
+   ========================= */
+
+#root,
+#__next {
+  isolation: isolate;
+}
