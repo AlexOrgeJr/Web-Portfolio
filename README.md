@@ -2,7 +2,7 @@
 
 Personal portfolio website about my career and life, built with [Astro](https://astro.build).
 
-🔗 **Live site:** [Studio.AlexOrgeJrt](https://studio.alexorgejr.workers.dev)
+🔗 **Live site:** [Studio.AlexOrgeJr](https://studio.alexorgejr.workers.dev)
 
 ![Homepage of my portfolio website](./docs/screenshot.png)
 
