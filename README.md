@@ -4,6 +4,10 @@ Personal portfolio website about my career and life, built with [Astro](https://
 
 🔗 **Live site:** [Studio.AlexOrgeJrt](https://studio.alexorgejr.workers.dev)
 
+![Homepage of my portfolio website](./docs/screenshot.png)
+
+[View full-page screenshot](./docs/screenshot-full.png)
+
 ## Tech Stack
 
 - Astro
